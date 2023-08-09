@@ -1,0 +1,25 @@
+{"family": "ecs-task",
+"containerDefinitions": [
+    {
+        "name": "app-container",
+        "image": "497805377012.dkr.ecr.us-east-1.amazonaws.com/porfolio-app-72kb-github-actions:0f704c3b001cc93a840587b207e6ebb4f85ceb7d",
+        "cpu": 1024,
+        "memory": 2048,
+        "portMappings": [
+        {
+            "containerPort": 3000,
+            "hostPort": 3000
+        }
+        ],
+        "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+            "awslogs-create-group": "true",
+            "awslogs-group": "app-log-group",
+            "awslogs-region": "us-east-1",
+            "awslogs-stream-prefix": "ecs"
+        }
+        }
+    }
+    ]
+}
